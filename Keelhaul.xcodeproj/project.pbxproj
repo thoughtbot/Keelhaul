@@ -10,6 +10,8 @@
 		00FEC0A41C19B1AA0098D0C4 /* Keelhaul.h in Headers */ = {isa = PBXBuildFile; fileRef = 00FEC0A31C19B1AA0098D0C4 /* Keelhaul.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00FEC0AB1C19B1AB0098D0C4 /* Keelhaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FEC0A01C19B1AA0098D0C4 /* Keelhaul.framework */; };
 		00FEC0B01C19B1AB0098D0C4 /* KeelhaulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */; };
+		00FEC0BD1C19B9170098D0C4 /* Keelhaul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */; };
+		00FEC0BF1C19CD130098D0C4 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0BE1C19CD130098D0C4 /* Receipt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		00FEC0AA1C19B1AB0098D0C4 /* KeelhaulTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeelhaulTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeelhaulTests.swift; sourceTree = "<group>"; };
 		00FEC0B11C19B1AB0098D0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keelhaul.swift; sourceTree = "<group>"; };
+		00FEC0BE1C19CD130098D0C4 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 		00FEC0961C19B1AA0098D0C4 = {
 			isa = PBXGroup;
 			children = (
+				00FEC0BB1C19B8180098D0C4 /* Core */,
 				00FEC0A21C19B1AA0098D0C4 /* Keelhaul */,
 				00FEC0AE1C19B1AB0098D0C4 /* KeelhaulTests */,
 				00FEC0A11C19B1AA0098D0C4 /* Products */,
@@ -71,8 +76,8 @@
 		00FEC0A21C19B1AA0098D0C4 /* Keelhaul */ = {
 			isa = PBXGroup;
 			children = (
-				00FEC0A31C19B1AA0098D0C4 /* Keelhaul.h */,
 				00FEC0A51C19B1AA0098D0C4 /* Info.plist */,
+				00FEC0A31C19B1AA0098D0C4 /* Keelhaul.h */,
 			);
 			path = Keelhaul;
 			sourceTree = "<group>";
@@ -84,6 +89,16 @@
 				00FEC0B11C19B1AB0098D0C4 /* Info.plist */,
 			);
 			path = KeelhaulTests;
+			sourceTree = "<group>";
+		};
+		00FEC0BB1C19B8180098D0C4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */,
+				00FEC0BE1C19CD130098D0C4 /* Receipt.swift */,
+			);
+			name = Core;
+			path = Keelhaul/Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +227,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00FEC0BF1C19CD130098D0C4 /* Receipt.swift in Sources */,
+				00FEC0BD1C19B9170098D0C4 /* Keelhaul.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,16 +344,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Keelhaul/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtbot.Keelhaul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -344,10 +364,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Keelhaul/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -396,6 +418,7 @@
 				00FEC0B61C19B1AB0098D0C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00FEC0B71C19B1AB0098D0C4 /* Build configuration list for PBXNativeTarget "KeelhaulTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +427,7 @@
 				00FEC0B91C19B1AB0098D0C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

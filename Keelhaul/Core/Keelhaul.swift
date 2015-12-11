@@ -1,16 +1,33 @@
 public class Keelhaul {
   private let receiptURL: NSURL?
+  private let token: String
 
-  var validationRequest: NSURLRequest {
-    return NSURLRequest()
+  public var validationRequest: NSURLRequest? {
+    #if DEBUG
+    let endpoint = "http://localhost:5000/api/v1/validate?sandbox=1"
+    #else
+    let endpoint = "http://keelhaul.io/api/v1/validate?sandbox=0"
+    #endif
+
+    guard let receiptData = encodedAppStoreReceipt else { return .None }
+
+    let request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
+    request.HTTPMethod = "POST"
+    request.HTTPBody = receiptData
+
+    return request
   }
 
   lazy var session: NSURLSession = {
-    return NSURLSession()
+    let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+    config.HTTPAdditionalHeaders = ["HTTP_AUTHORIZATION": "Token token=\"\(self.token)\""]
+    let session = NSURLSession(configuration: config)
+    return session
   }()
 
-  init() {
-    receiptURL = NSBundle.mainBundle().appStoreReceiptURL
+  init(token: String) {
+    self.receiptURL = NSBundle.mainBundle().appStoreReceiptURL
+    self.token = token
   }
 
   public var encodedAppStoreReceipt: NSData? {
@@ -28,7 +45,13 @@ public class Keelhaul {
   }
 
   final func validateReceipt(completion: (Receipt?, NSError?) -> Void) {
-    session.dataTaskWithRequest(validationRequest) { data, response, error in
+    guard let request = validationRequest else {
+      let error = NSError(domain: "com.thoughtbot.keelhaul", code: 9000, userInfo: nil)
+      completion(.None, error)
+      return
+    }
+
+    session.dataTaskWithRequest(request) { data, response, error in
       if let data = data {
         do {
           let json = try NSJSONSerialization.JSONObjectWithData(data, options: [])

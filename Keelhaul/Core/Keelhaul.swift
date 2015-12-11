@@ -25,9 +25,9 @@ public class Keelhaul {
     return session
   }()
 
-  init(token: String) {
-    self.receiptURL = NSBundle.mainBundle().appStoreReceiptURL
+  public init(token: String, receiptURL: NSURL? = NSBundle.mainBundle().appStoreReceiptURL) {
     self.token = token
+    self.receiptURL = receiptURL
   }
 
   public var encodedAppStoreReceipt: NSData? {
@@ -44,7 +44,7 @@ public class Keelhaul {
     return appStoreReceipt.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
   }
 
-  final func validateReceipt(completion: (Bool, Receipt?, NSError?) -> Void) {
+  public final func validateReceipt(completion: (Bool, Receipt?, NSError?) -> Void) {
     guard let request = validationRequest else {
       let error = NSError(domain: "com.thoughtbot.keelhaul", code: KeelhaulError.NoReceiptURL.rawValue, userInfo: nil)
       completion(false, .None, error)

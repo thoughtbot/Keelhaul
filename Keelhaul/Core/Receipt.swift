@@ -1,4 +1,4 @@
-struct Receipt {
+public struct Receipt {
   let ID: Int
   let bundleID: String
   let appVersion: String

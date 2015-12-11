@@ -12,6 +12,7 @@
 		00FEC0B01C19B1AB0098D0C4 /* KeelhaulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */; };
 		00FEC0BD1C19B9170098D0C4 /* Keelhaul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */; };
 		00FEC0BF1C19CD130098D0C4 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0BE1C19CD130098D0C4 /* Receipt.swift */; };
+		00FEC0CE1C1AFEE30098D0C4 /* KeelhaulError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0CD1C1AFEE30098D0C4 /* KeelhaulError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		00FEC0B11C19B1AB0098D0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keelhaul.swift; sourceTree = "<group>"; };
 		00FEC0BE1C19CD130098D0C4 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		00FEC0CD1C1AFEE30098D0C4 /* KeelhaulError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeelhaulError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */,
 				00FEC0BE1C19CD130098D0C4 /* Receipt.swift */,
+				00FEC0CD1C1AFEE30098D0C4 /* KeelhaulError.swift */,
 			);
 			name = Core;
 			path = Keelhaul/Core;
@@ -229,6 +232,7 @@
 			files = (
 				00FEC0BF1C19CD130098D0C4 /* Receipt.swift in Sources */,
 				00FEC0BD1C19B9170098D0C4 /* Keelhaul.swift in Sources */,
+				00FEC0CE1C1AFEE30098D0C4 /* KeelhaulError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

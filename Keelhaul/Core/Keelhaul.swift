@@ -44,23 +44,42 @@ public class Keelhaul {
     return appStoreReceipt.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
   }
 
-  final func validateReceipt(completion: (Receipt?, NSError?) -> Void) {
+  final func validateReceipt(completion: (Bool, Receipt?, NSError?) -> Void) {
     guard let request = validationRequest else {
-      let error = NSError(domain: "com.thoughtbot.keelhaul", code: 9000, userInfo: nil)
-      completion(.None, error)
+      let error = NSError(domain: "com.thoughtbot.keelhaul", code: KeelhaulError.NoReceiptURL.rawValue, userInfo: nil)
+      completion(false, .None, error)
       return
     }
 
     session.dataTaskWithRequest(request) { data, response, error in
-      if let data = data {
-        do {
-          let json = try NSJSONSerialization.JSONObjectWithData(data, options: [])
-          completion(Receipt.parse(json))
-        } catch let error as NSError {
-          completion(.None, error)
-        }
-      } else {
-        completion(.None, error)
+      guard let httpResponse = response as? NSHTTPURLResponse else {
+        let error = NSError(domain: "com.thoughtbot.keelhaul",
+          code: KeelhaulError.ResponseIsNotHTTP.rawValue,
+          userInfo: ["response": response ?? "F*ck this world, sir."])
+        completion(false, .None, error)
+        return
+      }
+
+      let code = httpResponse.statusCode
+      if !(200..<300).contains(code) {
+        let error = NSError(domain: "com.thoughtbot.keelhaul",
+          code: KeelhaulError.FailureResponse.rawValue,
+          userInfo: ["response": httpResponse])
+        completion(false, .None, error)
+        return
+      }
+
+      guard let data = data else {
+        completion(true, .None, .None)
+        return
+      }
+
+      do {
+        let json = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+        let (receipt, error) = Receipt.parse(json)
+        completion(true, receipt, error)
+      } catch let error as NSError {
+        completion(true, .None, error)
       }
     }.resume()
   }

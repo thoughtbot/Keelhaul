@@ -9,12 +9,16 @@ struct Receipt {
   static func parse(json: AnyObject) -> (Receipt?, NSError?) {
     guard let json = json as? [String: AnyObject],
       let status = json["status"] as? Int else {
-        let error = NSError(domain: "com.thoughtbot.keelhaul", code: 0, userInfo: .None)
+        let error = NSError(domain: "com.thoughtbot.keelhaul",
+          code: KeelhaulError.BadJSON.rawValue,
+          userInfo: .None)
         return (.None, error)
     }
 
     if status != 0 {
-      let error = NSError(domain: "com.thoughtbot.keelhaul", code: status, userInfo: .None)
+      let error = NSError(domain: "com.thoughtbot.keelhaul.iTunes",
+        code: status,
+        userInfo: .None)
       return (.None, error)
     }
 
@@ -26,7 +30,9 @@ struct Receipt {
       let requestDateString = receiptDict["request_date_ms"] as? String,
       let purchaseDateString = receiptDict["original_purchase_date_ms"] as? String
     else {
-      let error = NSError(domain: "com.thoughtbot.keelhaul", code: 0, userInfo: .None)
+      let error = NSError(domain: "com.thoughtbot.keelhaul",
+        code: KeelhaulError.InsufficientJSON.rawValue,
+        userInfo: .None)
       return (.None, error)
     }
 
@@ -34,7 +40,12 @@ struct Receipt {
     let requestDate = dateFromTimeIntervalString(requestDateString)
     let purchaseDate = dateFromTimeIntervalString(purchaseDateString)
 
-    let receipt = Receipt(ID: id, bundleID: bundleId, appVersion: appVersion, creationDate: creationDate, requestDate: requestDate, purchaseDate: purchaseDate)
+    let receipt = Receipt(ID: id,
+      bundleID: bundleId,
+      appVersion: appVersion,
+      creationDate: creationDate,
+      requestDate: requestDate,
+      purchaseDate: purchaseDate)
     return (receipt, .None)
   }
 }

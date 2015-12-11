@@ -1,16 +1,20 @@
-public struct Keelhaul {
-  static let appStoreReceiptURL = NSBundle.mainBundle().appStoreReceiptURL
+ public struct Keelhaul {
+  private let receiptURL: NSURL?
 
-  public static var encodedAppStoreReceipt: NSData? {
+  init() {
+    receiptURL = NSBundle.mainBundle().appStoreReceiptURL
+  }
+
+  public var encodedAppStoreReceipt: NSData? {
     return base64AppStoreReceipt?.dataUsingEncoding(NSUTF8StringEncoding)
   }
 
-  public static var hasReceipt: Bool {
-    return appStoreReceiptURL?.checkResourceIsReachableAndReturnError(nil) ?? false
+  public var hasReceipt: Bool {
+    return receiptURL?.checkResourceIsReachableAndReturnError(nil) ?? false
   }
 
-  static var base64AppStoreReceipt: String? {
-    guard let receiptURL = appStoreReceiptURL,
+  private var base64AppStoreReceipt: String? {
+    guard let receiptURL = receiptURL,
       let appStoreReceipt = NSData(contentsOfURL: receiptURL) else { return .None }
     return appStoreReceipt.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
   }

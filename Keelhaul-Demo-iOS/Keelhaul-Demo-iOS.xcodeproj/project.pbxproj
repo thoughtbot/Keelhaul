@@ -12,7 +12,7 @@
 		00FEC0E11C1B01060098D0C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00FEC0DF1C1B01060098D0C4 /* Main.storyboard */; };
 		00FEC0E31C1B01060098D0C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00FEC0E21C1B01060098D0C4 /* Assets.xcassets */; };
 		00FEC0E61C1B01060098D0C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00FEC0E41C1B01060098D0C4 /* LaunchScreen.storyboard */; };
-		00FEC0EE1C1B01490098D0C4 /* Keelhaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FEC0ED1C1B01490098D0C4 /* Keelhaul.framework */; };
+		00FEC0F81C1B0D0E0098D0C4 /* Keelhaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FEC0F71C1B0D0E0098D0C4 /* Keelhaul.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		00FEC0E21C1B01060098D0C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00FEC0E51C1B01060098D0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00FEC0E71C1B01060098D0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00FEC0ED1C1B01490098D0C4 /* Keelhaul.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keelhaul.framework; path = "../../build/Debug-iphoneos/Keelhaul.framework"; sourceTree = "<group>"; };
+		00FEC0F71C1B0D0E0098D0C4 /* Keelhaul.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keelhaul.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Keelhaul-cmnvotgrhqumthemepqxttyurivf/Build/Products/Debug-iphoneos/Keelhaul.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00FEC0EE1C1B01490098D0C4 /* Keelhaul.framework in Frameworks */,
+				00FEC0F81C1B0D0E0098D0C4 /* Keelhaul.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,10 +67,10 @@
 		00FEC0EF1C1B03900098D0C4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				00FEC0F71C1B0D0E0098D0C4 /* Keelhaul.framework */,
 				00FEC0DF1C1B01060098D0C4 /* Main.storyboard */,
 				00FEC0E21C1B01060098D0C4 /* Assets.xcassets */,
 				00FEC0E41C1B01060098D0C4 /* LaunchScreen.storyboard */,
-				00FEC0ED1C1B01490098D0C4 /* Keelhaul.framework */,
 				00FEC0E71C1B01060098D0C4 /* Info.plist */,
 			);
 			name = Resources;
@@ -108,6 +108,7 @@
 				TargetAttributes = {
 					00FEC0D71C1B01060098D0C4 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6HP9L9E9E4;
 					};
 				};
 			};
@@ -261,7 +262,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Keelhaul-Demo-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thoughtbot.Keelhaul-Demo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,7 +275,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Keelhaul-Demo-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thoughtbot.Keelhaul-Demo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005CB58F1C244DA40017552B /* validReceipt.txt in Resources */ = {isa = PBXBuildFile; fileRef = 005CB58E1C244DA40017552B /* validReceipt.txt */; };
+		005CB5911C24583E0017552B /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005CB5901C24583E0017552B /* DateHelpers.swift */; };
 		00FEC0A41C19B1AA0098D0C4 /* Keelhaul.h in Headers */ = {isa = PBXBuildFile; fileRef = 00FEC0A31C19B1AA0098D0C4 /* Keelhaul.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00FEC0AB1C19B1AB0098D0C4 /* Keelhaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FEC0A01C19B1AA0098D0C4 /* Keelhaul.framework */; };
 		00FEC0B01C19B1AB0098D0C4 /* KeelhaulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		005CB58E1C244DA40017552B /* validReceipt.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = validReceipt.txt; sourceTree = "<group>"; };
+		005CB5901C24583E0017552B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		00FEC0A01C19B1AA0098D0C4 /* Keelhaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Keelhaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		00FEC0A31C19B1AA0098D0C4 /* Keelhaul.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keelhaul.h; sourceTree = "<group>"; };
 		00FEC0A51C19B1AA0098D0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		005CB58D1C244D700017552B /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				005CB58E1C244DA40017552B /* validReceipt.txt */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		00FEC0961C19B1AA0098D0C4 = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +99,10 @@
 		00FEC0AE1C19B1AB0098D0C4 /* KeelhaulTests */ = {
 			isa = PBXGroup;
 			children = (
-				00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */,
 				00FEC0B11C19B1AB0098D0C4 /* Info.plist */,
+				005CB5901C24583E0017552B /* DateHelpers.swift */,
+				00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */,
+				005CB58D1C244D700017552B /* Fixtures */,
 			);
 			path = KeelhaulTests;
 			sourceTree = "<group>";
@@ -203,6 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				005CB58F1C244DA40017552B /* validReceipt.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00FEC0B01C19B1AB0098D0C4 /* KeelhaulTests.swift in Sources */,
+				005CB5911C24583E0017552B /* DateHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

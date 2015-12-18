@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -o pipefail
+
+portcheck=$(lsof -i \:1234)
+
+if [[ $? != 0 ]]; then
+  ruby ./fake_server.rb &
+elif [[ $portcheck ]]; then
+  echo "Server is already running..."
+fi
+
+xcodebuild test -project Keelhaul.xcodeproj \
+                -scheme Keelhaul \
+                -destination 'platform=iOS Simulator,name=iPhone 6' | xcpretty -t -c

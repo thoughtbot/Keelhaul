@@ -51,5 +51,7 @@ public struct Receipt {
 }
 
 private func dateFromTimeIntervalString(string: String) -> NSDate {
-  return NSDate(timeIntervalSince1970:NSTimeInterval(Int(string) ?? 0))
+  let milliSeconds = Int(string) ?? 0
+  let interval = NSTimeInterval(milliSeconds / 1000)
+  return NSDate(timeIntervalSince1970: interval)
 }

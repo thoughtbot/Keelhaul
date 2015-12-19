@@ -6,7 +6,9 @@ class KeelhaulTests: XCTestCase {
 
   func testValidReceipt() {
     let expectation = expectationWithDescription("validateReceipt")
-    let keelhaul = Keelhaul(token: "secret", receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234?success=1")!)
+    let keelhaul = Keelhaul(token: "secret",
+      receiptURL: validReceiptURL,
+      endpointURL: NSURL(string: "http://localhost:1234?success=1")!)
 
     keelhaul.validateReceipt { success, receipt, error in
       XCTAssertTrue(success)

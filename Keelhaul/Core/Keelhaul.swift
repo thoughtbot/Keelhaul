@@ -4,11 +4,22 @@ public final class Keelhaul {
   private let token: String
 
   private var validationRequest: NSURLRequest? {
-    guard let receiptData = encodedAppStoreReceipt else { return .None }
+    guard let receiptData = base64AppStoreReceipt,
+      let identifier = UIDevice.currentDevice().identifierForVendor?.UUIDString
+      else { return .None }
 
     let request = NSMutableURLRequest(URL: endpointURL)
+    request.allHTTPHeaderFields = ["Content-Type": "application/json"]
     request.HTTPMethod = "POST"
-    request.HTTPBody = receiptData
+
+    let jsonObject = [
+      "receipt": [
+        "data": receiptData,
+        "token": identifier,
+      ]
+    ]
+    let options = NSJSONWritingOptions.init(rawValue: 0)
+    try! request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonObject, options: options)
 
     return request
   }
@@ -28,10 +39,6 @@ public final class Keelhaul {
     self.endpointURL = endpointURL
   }
 
-  private var encodedAppStoreReceipt: NSData? {
-    return base64AppStoreReceipt?.dataUsingEncoding(NSUTF8StringEncoding)
-  }
-
   private var hasReceipt: Bool {
     return receiptURL?.checkResourceIsReachableAndReturnError(nil) ?? false
   }
@@ -39,7 +46,8 @@ public final class Keelhaul {
   private var base64AppStoreReceipt: String? {
     guard let receiptURL = receiptURL,
       let appStoreReceipt = NSData(contentsOfURL: receiptURL) else { return .None }
-    return appStoreReceipt.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+    let options = NSDataBase64EncodingOptions.init(rawValue: 0)
+    return appStoreReceipt.base64EncodedStringWithOptions(options)
   }
 
   public final func validateReceipt(completion: (Bool, Receipt?, NSError?) -> Void) {

@@ -7,28 +7,19 @@ public struct Receipt {
   let purchaseDate: NSDate
 
   static func parse(json: AnyObject) -> (Receipt?, NSError?) {
-    guard let json = json as? [String: AnyObject],
-      let status = json["status"] as? Int else {
-        let error = NSError(domain: "com.thoughtbot.keelhaul",
-          code: KeelhaulError.BadJSON.rawValue,
-          userInfo: .None)
-        return (.None, error)
-    }
-
-    if status != 0 {
-      let error = NSError(domain: "com.thoughtbot.keelhaul.iTunes",
-        code: status,
+    guard let json = json as? [String: AnyObject] else {
+      let error = NSError(domain: "com.thoughtbot.keelhaul",
+        code: KeelhaulError.BadJSON.rawValue,
         userInfo: .None)
       return (.None, error)
     }
 
-    guard let receiptDict = json["receipt"] as? [String: AnyObject],
-      let id = receiptDict["download_id"] as? Int,
-      let bundleId = receiptDict["bundle_id"] as? String,
-      let appVersion = receiptDict["application_version"] as? String,
-      let creationDateString = receiptDict["receipt_creation_date_ms"] as? String,
-      let requestDateString = receiptDict["request_date_ms"] as? String,
-      let purchaseDateString = receiptDict["original_purchase_date_ms"] as? String
+    guard let id = json["download_id"] as? Int,
+      let bundleId = json["bundle_id"] as? String,
+      let appVersion = json["application_version"] as? String,
+      let creationDateString = json["receipt_creation_date_ms"] as? String,
+      let requestDateString = json["request_date_ms"] as? String,
+      let purchaseDateString = json["original_purchase_date_ms"] as? String
     else {
       let error = NSError(domain: "com.thoughtbot.keelhaul",
         code: KeelhaulError.InsufficientJSON.rawValue,

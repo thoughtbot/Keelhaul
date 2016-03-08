@@ -1,3 +1,5 @@
+import Foundation
+
 public struct Receipt {
   let ID: Int
   let bundleID: String
@@ -8,10 +10,7 @@ public struct Receipt {
 
   static func parse(json: AnyObject) -> (Receipt?, NSError?) {
     guard let json = json as? [String: AnyObject] else {
-      let error = NSError(domain: "com.thoughtbot.keelhaul",
-        code: KeelhaulError.BadJSON.rawValue,
-        userInfo: .None)
-      return (.None, error)
+      return (.None, KeelhaulError.BadJSON.toNSError())
     }
 
     guard let id = json["download_id"] as? Int,

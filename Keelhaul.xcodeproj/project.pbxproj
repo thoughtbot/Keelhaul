@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		005CB58F1C244DA40017552B /* validReceipt.txt in Resources */ = {isa = PBXBuildFile; fileRef = 005CB58E1C244DA40017552B /* validReceipt.txt */; };
 		005CB5911C24583E0017552B /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005CB5901C24583E0017552B /* DateHelpers.swift */; };
+		006451DB1C92C9B200D41C7B /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006451DA1C92C9B200D41C7B /* NSDataExtension.swift */; };
+		006451DC1C92C9B200D41C7B /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006451DA1C92C9B200D41C7B /* NSDataExtension.swift */; };
+		00651A511C907C1B00FF6C7E /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005CB5901C24583E0017552B /* DateHelpers.swift */; };
+		00651A521C907C2500FF6C7E /* validReceipt.txt in Resources */ = {isa = PBXBuildFile; fileRef = 005CB58E1C244DA40017552B /* validReceipt.txt */; };
+		00651A531C907D0900FF6C7E /* KeelhaulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */; };
+		00BB02991C8EE33400064575 /* Keelhaul-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 00BB02981C8EE33400064575 /* Keelhaul-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		00BB02A01C8EE33400064575 /* Keelhaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BB02961C8EE33400064575 /* Keelhaul.framework */; };
+		00BB02AD1C8EE46A00064575 /* Keelhaul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */; };
+		00BB02AE1C8EE46A00064575 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0BE1C19CD130098D0C4 /* Receipt.swift */; };
+		00BB02AF1C8EE46A00064575 /* KeelhaulError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0CD1C1AFEE30098D0C4 /* KeelhaulError.swift */; };
+		00BB02DE1C8F0B8100064575 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BB02D01C8F0AFD00064575 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		00BB02DF1C8F0B8600064575 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BB02B51C8F011900064575 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		00BB02E31C8F0DD700064575 /* StringHashExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BB02E21C8F0DD700064575 /* StringHashExtension.swift */; };
+		00BB02E41C8F0DD700064575 /* StringHashExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BB02E21C8F0DD700064575 /* StringHashExtension.swift */; };
+		00BB02E71C8F363000064575 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BB02E01C8F0B8D00064575 /* libz.tbd */; };
+		00BB02E81C8F363A00064575 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BB02D91C8F0B6A00064575 /* libz.tbd */; };
 		00FEC0A41C19B1AA0098D0C4 /* Keelhaul.h in Headers */ = {isa = PBXBuildFile; fileRef = 00FEC0A31C19B1AA0098D0C4 /* Keelhaul.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00FEC0AB1C19B1AB0098D0C4 /* Keelhaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FEC0A01C19B1AA0098D0C4 /* Keelhaul.framework */; };
 		00FEC0B01C19B1AB0098D0C4 /* KeelhaulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */; };
@@ -18,6 +34,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		00BB02A11C8EE33400064575 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00FEC0971C19B1AA0098D0C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00BB02951C8EE33400064575;
+			remoteInfo = "Keelhaul-OSX";
+		};
+		00BB02C31C8F030900064575 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00FEC0971C19B1AA0098D0C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00BB02B41C8F011900064575;
+			remoteInfo = CommonCrypto;
+		};
+		00BB02DC1C8F0B7B00064575 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00FEC0971C19B1AA0098D0C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00BB02CF1C8F0AFD00064575;
+			remoteInfo = "CommonCrypto-OSX";
+		};
 		00FEC0AC1C19B1AB0098D0C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00FEC0971C19B1AA0098D0C4 /* Project object */;
@@ -30,10 +67,27 @@
 /* Begin PBXFileReference section */
 		005CB58E1C244DA40017552B /* validReceipt.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = validReceipt.txt; sourceTree = "<group>"; };
 		005CB5901C24583E0017552B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
+		006451DA1C92C9B200D41C7B /* NSDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExtension.swift; sourceTree = "<group>"; };
+		00BB02961C8EE33400064575 /* Keelhaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Keelhaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		00BB02981C8EE33400064575 /* Keelhaul-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keelhaul-OSX.h"; sourceTree = "<group>"; };
+		00BB029A1C8EE33400064575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00BB029F1C8EE33400064575 /* KeelhaulTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KeelhaulTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00BB02A61C8EE33400064575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00BB02B51C8F011900064575 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		00BB02B91C8F011900064575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00BB02BD1C8F016200064575 /* CommonCrypto.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CommonCrypto.xcconfig; sourceTree = "<group>"; };
+		00BB02BE1C8F027E00064575 /* iphoneos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphoneos.modulemap; sourceTree = "<group>"; };
+		00BB02BF1C8F029600064575 /* iphonesimulator.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphonesimulator.modulemap; sourceTree = "<group>"; };
+		00BB02C01C8F02A800064575 /* macosx.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = macosx.modulemap; sourceTree = "<group>"; };
+		00BB02D01C8F0AFD00064575 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		00BB02D41C8F0AFD00064575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00BB02D91C8F0B6A00064575 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		00BB02E01C8F0B8D00064575 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		00BB02E21C8F0DD700064575 /* StringHashExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHashExtension.swift; sourceTree = "<group>"; };
 		00FEC0A01C19B1AA0098D0C4 /* Keelhaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Keelhaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		00FEC0A31C19B1AA0098D0C4 /* Keelhaul.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keelhaul.h; sourceTree = "<group>"; };
 		00FEC0A51C19B1AA0098D0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00FEC0AA1C19B1AB0098D0C4 /* KeelhaulTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeelhaulTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00FEC0AA1C19B1AB0098D0C4 /* KeelhaulTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KeelhaulTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeelhaulTests.swift; sourceTree = "<group>"; };
 		00FEC0B11C19B1AB0098D0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keelhaul.swift; sourceTree = "<group>"; };
@@ -42,10 +96,43 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		00BB02921C8EE33400064575 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00BB02DE1C8F0B8100064575 /* CommonCrypto.framework in Frameworks */,
+				00BB02E81C8F363A00064575 /* libz.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB029C1C8EE33400064575 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00BB02A01C8EE33400064575 /* Keelhaul.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB02B11C8F011900064575 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB02CC1C8F0AFD00064575 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		00FEC09C1C19B1AA0098D0C4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00BB02DF1C8F0B8600064575 /* CommonCrypto.framework in Frameworks */,
+				00BB02E71C8F363000064575 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +155,56 @@
 			path = Fixtures;
 			sourceTree = "<group>";
 		};
+		00BB02971C8EE33400064575 /* Keelhaul-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				00BB02981C8EE33400064575 /* Keelhaul-OSX.h */,
+				00BB029A1C8EE33400064575 /* Info.plist */,
+				00BB02D91C8F0B6A00064575 /* libz.tbd */,
+			);
+			path = "Keelhaul-OSX";
+			sourceTree = "<group>";
+		};
+		00BB02A31C8EE33400064575 /* KeelhaulTests-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				00BB02A61C8EE33400064575 /* Info.plist */,
+			);
+			name = "KeelhaulTests-OSX";
+			path = "Keelhaul-OSXTests";
+			sourceTree = "<group>";
+		};
+		00BB02B61C8F011900064575 /* CommonCrypto-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				00BB02B91C8F011900064575 /* Info.plist */,
+				00BB02BD1C8F016200064575 /* CommonCrypto.xcconfig */,
+				00BB02BE1C8F027E00064575 /* iphoneos.modulemap */,
+				00BB02BF1C8F029600064575 /* iphonesimulator.modulemap */,
+				00BB02C01C8F02A800064575 /* macosx.modulemap */,
+			);
+			name = "CommonCrypto-iOS";
+			path = CommonCrypto;
+			sourceTree = "<group>";
+		};
+		00BB02D11C8F0AFD00064575 /* CommonCrypto-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				00BB02D41C8F0AFD00064575 /* Info.plist */,
+			);
+			path = "CommonCrypto-OSX";
+			sourceTree = "<group>";
+		};
 		00FEC0961C19B1AA0098D0C4 = {
 			isa = PBXGroup;
 			children = (
 				00FEC0BB1C19B8180098D0C4 /* Core */,
-				00FEC0A21C19B1AA0098D0C4 /* Keelhaul */,
-				00FEC0AE1C19B1AB0098D0C4 /* KeelhaulTests */,
+				00FEC0A21C19B1AA0098D0C4 /* Keelhaul-iOS */,
+				00FEC0AE1C19B1AB0098D0C4 /* KeelhaulTests-iOS */,
+				00BB02971C8EE33400064575 /* Keelhaul-OSX */,
+				00BB02A31C8EE33400064575 /* KeelhaulTests-OSX */,
+				00BB02B61C8F011900064575 /* CommonCrypto-iOS */,
+				00BB02D11C8F0AFD00064575 /* CommonCrypto-OSX */,
 				00FEC0A11C19B1AA0098D0C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,21 +213,27 @@
 			isa = PBXGroup;
 			children = (
 				00FEC0A01C19B1AA0098D0C4 /* Keelhaul.framework */,
-				00FEC0AA1C19B1AB0098D0C4 /* KeelhaulTests.xctest */,
+				00FEC0AA1C19B1AB0098D0C4 /* KeelhaulTests-iOS.xctest */,
+				00BB02961C8EE33400064575 /* Keelhaul.framework */,
+				00BB029F1C8EE33400064575 /* KeelhaulTests-OSX.xctest */,
+				00BB02B51C8F011900064575 /* CommonCrypto.framework */,
+				00BB02D01C8F0AFD00064575 /* CommonCrypto.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00FEC0A21C19B1AA0098D0C4 /* Keelhaul */ = {
+		00FEC0A21C19B1AA0098D0C4 /* Keelhaul-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				00FEC0A51C19B1AA0098D0C4 /* Info.plist */,
 				00FEC0A31C19B1AA0098D0C4 /* Keelhaul.h */,
+				00BB02E01C8F0B8D00064575 /* libz.tbd */,
 			);
+			name = "Keelhaul-iOS";
 			path = Keelhaul;
 			sourceTree = "<group>";
 		};
-		00FEC0AE1C19B1AB0098D0C4 /* KeelhaulTests */ = {
+		00FEC0AE1C19B1AB0098D0C4 /* KeelhaulTests-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				00FEC0B11C19B1AB0098D0C4 /* Info.plist */,
@@ -104,6 +241,7 @@
 				00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */,
 				005CB58D1C244D700017552B /* Fixtures */,
 			);
+			name = "KeelhaulTests-iOS";
 			path = KeelhaulTests;
 			sourceTree = "<group>";
 		};
@@ -111,8 +249,10 @@
 			isa = PBXGroup;
 			children = (
 				00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */,
-				00FEC0BE1C19CD130098D0C4 /* Receipt.swift */,
 				00FEC0CD1C1AFEE30098D0C4 /* KeelhaulError.swift */,
+				00FEC0BE1C19CD130098D0C4 /* Receipt.swift */,
+				00BB02E21C8F0DD700064575 /* StringHashExtension.swift */,
+				006451DA1C92C9B200D41C7B /* NSDataExtension.swift */,
 			);
 			name = Core;
 			path = Keelhaul/Core;
@@ -121,6 +261,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		00BB02931C8EE33400064575 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00BB02991C8EE33400064575 /* Keelhaul-OSX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB02B21C8F011900064575 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB02CD1C8F0AFD00064575 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		00FEC09D1C19B1AA0098D0C4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,9 +294,82 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		00FEC09F1C19B1AA0098D0C4 /* Keelhaul */ = {
+		00BB02951C8EE33400064575 /* Keelhaul-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00FEC0B41C19B1AB0098D0C4 /* Build configuration list for PBXNativeTarget "Keelhaul" */;
+			buildConfigurationList = 00BB02A71C8EE33400064575 /* Build configuration list for PBXNativeTarget "Keelhaul-OSX" */;
+			buildPhases = (
+				00BB02911C8EE33400064575 /* Sources */,
+				00BB02921C8EE33400064575 /* Frameworks */,
+				00BB02931C8EE33400064575 /* Headers */,
+				00BB02941C8EE33400064575 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00BB02DD1C8F0B7B00064575 /* PBXTargetDependency */,
+			);
+			name = "Keelhaul-OSX";
+			productName = "Keelhaul-OSX";
+			productReference = 00BB02961C8EE33400064575 /* Keelhaul.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		00BB029E1C8EE33400064575 /* KeelhaulTests-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00BB02AA1C8EE33400064575 /* Build configuration list for PBXNativeTarget "KeelhaulTests-OSX" */;
+			buildPhases = (
+				00BB029B1C8EE33400064575 /* Sources */,
+				00BB029C1C8EE33400064575 /* Frameworks */,
+				00BB029D1C8EE33400064575 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00BB02A21C8EE33400064575 /* PBXTargetDependency */,
+			);
+			name = "KeelhaulTests-OSX";
+			productName = "Keelhaul-OSXTests";
+			productReference = 00BB029F1C8EE33400064575 /* KeelhaulTests-OSX.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		00BB02B41C8F011900064575 /* CommonCrypto-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00BB02BA1C8F011900064575 /* Build configuration list for PBXNativeTarget "CommonCrypto-iOS" */;
+			buildPhases = (
+				00BB02B01C8F011900064575 /* Sources */,
+				00BB02B11C8F011900064575 /* Frameworks */,
+				00BB02B21C8F011900064575 /* Headers */,
+				00BB02B31C8F011900064575 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CommonCrypto-iOS";
+			productName = CommonCrypto;
+			productReference = 00BB02B51C8F011900064575 /* CommonCrypto.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		00BB02CF1C8F0AFD00064575 /* CommonCrypto-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00BB02D51C8F0AFD00064575 /* Build configuration list for PBXNativeTarget "CommonCrypto-OSX" */;
+			buildPhases = (
+				00BB02CB1C8F0AFD00064575 /* Sources */,
+				00BB02CC1C8F0AFD00064575 /* Frameworks */,
+				00BB02CD1C8F0AFD00064575 /* Headers */,
+				00BB02CE1C8F0AFD00064575 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CommonCrypto-OSX";
+			productName = "CommonCrypto-OSX";
+			productReference = 00BB02D01C8F0AFD00064575 /* CommonCrypto.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		00FEC09F1C19B1AA0098D0C4 /* Keelhaul-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00FEC0B41C19B1AB0098D0C4 /* Build configuration list for PBXNativeTarget "Keelhaul-iOS" */;
 			buildPhases = (
 				00FEC09B1C19B1AA0098D0C4 /* Sources */,
 				00FEC09C1C19B1AA0098D0C4 /* Frameworks */,
@@ -145,15 +380,16 @@
 			buildRules = (
 			);
 			dependencies = (
+				00BB02C41C8F030900064575 /* PBXTargetDependency */,
 			);
-			name = Keelhaul;
+			name = "Keelhaul-iOS";
 			productName = Keelhaul;
 			productReference = 00FEC0A01C19B1AA0098D0C4 /* Keelhaul.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		00FEC0A91C19B1AB0098D0C4 /* KeelhaulTests */ = {
+		00FEC0A91C19B1AB0098D0C4 /* KeelhaulTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00FEC0B71C19B1AB0098D0C4 /* Build configuration list for PBXNativeTarget "KeelhaulTests" */;
+			buildConfigurationList = 00FEC0B71C19B1AB0098D0C4 /* Build configuration list for PBXNativeTarget "KeelhaulTests-iOS" */;
 			buildPhases = (
 				00FEC0A61C19B1AB0098D0C4 /* Sources */,
 				00FEC0A71C19B1AB0098D0C4 /* Frameworks */,
@@ -164,9 +400,9 @@
 			dependencies = (
 				00FEC0AD1C19B1AB0098D0C4 /* PBXTargetDependency */,
 			);
-			name = KeelhaulTests;
+			name = "KeelhaulTests-iOS";
 			productName = KeelhaulTests;
-			productReference = 00FEC0AA1C19B1AB0098D0C4 /* KeelhaulTests.xctest */;
+			productReference = 00FEC0AA1C19B1AB0098D0C4 /* KeelhaulTests-iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -179,6 +415,18 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Reda Lemeden";
 				TargetAttributes = {
+					00BB02951C8EE33400064575 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					00BB029E1C8EE33400064575 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					00BB02B41C8F011900064575 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					00BB02CF1C8F0AFD00064575 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					00FEC09F1C19B1AA0098D0C4 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -199,13 +447,46 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00FEC09F1C19B1AA0098D0C4 /* Keelhaul */,
-				00FEC0A91C19B1AB0098D0C4 /* KeelhaulTests */,
+				00FEC09F1C19B1AA0098D0C4 /* Keelhaul-iOS */,
+				00FEC0A91C19B1AB0098D0C4 /* KeelhaulTests-iOS */,
+				00BB02951C8EE33400064575 /* Keelhaul-OSX */,
+				00BB029E1C8EE33400064575 /* KeelhaulTests-OSX */,
+				00BB02B41C8F011900064575 /* CommonCrypto-iOS */,
+				00BB02CF1C8F0AFD00064575 /* CommonCrypto-OSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		00BB02941C8EE33400064575 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB029D1C8EE33400064575 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00651A521C907C2500FF6C7E /* validReceipt.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB02B31C8F011900064575 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB02CE1C8F0AFD00064575 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		00FEC09E1C19B1AA0098D0C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,10 +522,47 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		00BB02911C8EE33400064575 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				006451DC1C92C9B200D41C7B /* NSDataExtension.swift in Sources */,
+				00BB02E41C8F0DD700064575 /* StringHashExtension.swift in Sources */,
+				00BB02AE1C8EE46A00064575 /* Receipt.swift in Sources */,
+				00BB02AD1C8EE46A00064575 /* Keelhaul.swift in Sources */,
+				00BB02AF1C8EE46A00064575 /* KeelhaulError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB029B1C8EE33400064575 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00651A531C907D0900FF6C7E /* KeelhaulTests.swift in Sources */,
+				00651A511C907C1B00FF6C7E /* DateHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB02B01C8F011900064575 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BB02CB1C8F0AFD00064575 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		00FEC09B1C19B1AA0098D0C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006451DB1C92C9B200D41C7B /* NSDataExtension.swift in Sources */,
+				00BB02E31C8F0DD700064575 /* StringHashExtension.swift in Sources */,
 				00FEC0BF1C19CD130098D0C4 /* Receipt.swift in Sources */,
 				00FEC0BD1C19B9170098D0C4 /* Keelhaul.swift in Sources */,
 				00FEC0CE1C1AFEE30098D0C4 /* KeelhaulError.swift in Sources */,
@@ -263,14 +581,191 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		00BB02A21C8EE33400064575 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00BB02951C8EE33400064575 /* Keelhaul-OSX */;
+			targetProxy = 00BB02A11C8EE33400064575 /* PBXContainerItemProxy */;
+		};
+		00BB02C41C8F030900064575 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00BB02B41C8F011900064575 /* CommonCrypto-iOS */;
+			targetProxy = 00BB02C31C8F030900064575 /* PBXContainerItemProxy */;
+		};
+		00BB02DD1C8F0B7B00064575 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00BB02CF1C8F0AFD00064575 /* CommonCrypto-OSX */;
+			targetProxy = 00BB02DC1C8F0B7B00064575 /* PBXContainerItemProxy */;
+		};
 		00FEC0AD1C19B1AB0098D0C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 00FEC09F1C19B1AA0098D0C4 /* Keelhaul */;
+			target = 00FEC09F1C19B1AA0098D0C4 /* Keelhaul-iOS */;
 			targetProxy = 00FEC0AC1C19B1AB0098D0C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		00BB02A81C8EE33400064575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Keelhaul-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thoughtbot.Keelhaul-OSX";
+				PRODUCT_NAME = Keelhaul;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		00BB02A91C8EE33400064575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Keelhaul-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thoughtbot.Keelhaul-OSX";
+				PRODUCT_NAME = Keelhaul;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		00BB02AB1C8EE33400064575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Keelhaul-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thoughtbot.Keelhaul-OSXTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		00BB02AC1C8EE33400064575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Keelhaul-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thoughtbot.Keelhaul-OSXTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		00BB02BB1C8F011900064575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00BB02BD1C8F016200064575 /* CommonCrypto.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CommonCrypto/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtbot.CommonCrypto;
+				PRODUCT_NAME = CommonCrypto;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		00BB02BC1C8F011900064575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00BB02BD1C8F016200064575 /* CommonCrypto.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CommonCrypto/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtbot.CommonCrypto;
+				PRODUCT_NAME = CommonCrypto;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		00BB02D61C8F0AFD00064575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00BB02BD1C8F016200064575 /* CommonCrypto.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "CommonCrypto-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thoughtbot.CommonCrypto-OSX";
+				PRODUCT_NAME = CommonCrypto;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		00BB02D71C8F0AFD00064575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00BB02BD1C8F016200064575 /* CommonCrypto.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "CommonCrypto-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thoughtbot.CommonCrypto-OSX";
+				PRODUCT_NAME = CommonCrypto;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		00FEC0B21C19B1AB0098D0C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -374,8 +869,12 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtbot.Keelhaul;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Keelhaul;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -395,8 +894,12 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtbot.Keelhaul;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Keelhaul;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -424,6 +927,42 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		00BB02A71C8EE33400064575 /* Build configuration list for PBXNativeTarget "Keelhaul-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00BB02A81C8EE33400064575 /* Debug */,
+				00BB02A91C8EE33400064575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00BB02AA1C8EE33400064575 /* Build configuration list for PBXNativeTarget "KeelhaulTests-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00BB02AB1C8EE33400064575 /* Debug */,
+				00BB02AC1C8EE33400064575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00BB02BA1C8F011900064575 /* Build configuration list for PBXNativeTarget "CommonCrypto-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00BB02BB1C8F011900064575 /* Debug */,
+				00BB02BC1C8F011900064575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00BB02D51C8F0AFD00064575 /* Build configuration list for PBXNativeTarget "CommonCrypto-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00BB02D61C8F0AFD00064575 /* Debug */,
+				00BB02D71C8F0AFD00064575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		00FEC09A1C19B1AA0098D0C4 /* Build configuration list for PBXProject "Keelhaul" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -433,7 +972,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00FEC0B41C19B1AB0098D0C4 /* Build configuration list for PBXNativeTarget "Keelhaul" */ = {
+		00FEC0B41C19B1AB0098D0C4 /* Build configuration list for PBXNativeTarget "Keelhaul-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00FEC0B51C19B1AB0098D0C4 /* Debug */,
@@ -442,7 +981,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00FEC0B71C19B1AB0098D0C4 /* Build configuration list for PBXNativeTarget "KeelhaulTests" */ = {
+		00FEC0B71C19B1AB0098D0C4 /* Build configuration list for PBXNativeTarget "KeelhaulTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00FEC0B81C19B1AB0098D0C4 /* Debug */,

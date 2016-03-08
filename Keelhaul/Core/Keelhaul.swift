@@ -1,11 +1,17 @@
+import Foundation
+
 public final class Keelhaul {
+  // MARK: - Private Static Properties
+
   private let endpointURL: NSURL
   private let receiptURL: NSURL?
   private let token: String
 
+  // MARK: - Private Computed Properties
+
   private var validationRequest: NSURLRequest? {
     guard let receiptData = base64AppStoreReceipt,
-      let identifier = UIDevice.currentDevice().identifierForVendor?.UUIDString
+      let deviceHash = deviceIdentifier?.SHA256
       else { return .None }
 
     let request = NSMutableURLRequest(URL: endpointURL)
@@ -15,28 +21,13 @@ public final class Keelhaul {
     let jsonObject = [
       "receipt": [
         "data": receiptData,
-        "token": identifier,
+        "device_hash": deviceHash,
       ]
     ]
     let options = NSJSONWritingOptions.init(rawValue: 0)
     try! request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonObject, options: options)
 
     return request
-  }
-
-  private lazy var session: NSURLSession = {
-    let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-    config.HTTPAdditionalHeaders = ["Authorization": "Token token=\"\(self.token)\""]
-    let session = NSURLSession(configuration: config)
-    return session
-  }()
-
-  public init(token: String,
-    receiptURL: NSURL? = NSBundle.mainBundle().appStoreReceiptURL,
-    endpointURL: NSURL = NSURL(string: "https://keelhaul.io/api/v1/validate")!) {
-    self.token = token
-    self.receiptURL = receiptURL
-    self.endpointURL = endpointURL
   }
 
   private var hasReceipt: Bool {
@@ -46,38 +37,63 @@ public final class Keelhaul {
   private var base64AppStoreReceipt: String? {
     guard let receiptURL = receiptURL,
       let appStoreReceipt = NSData(contentsOfURL: receiptURL) else { return .None }
-    let options = NSDataBase64EncodingOptions.init(rawValue: 0)
+    let options = NSDataBase64EncodingOptions(rawValue: 0)
     return appStoreReceipt.base64EncodedStringWithOptions(options)
+  }
+
+  // MARK: - Private Lazy Properties
+
+  private lazy var session: NSURLSession = {
+    let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+    config.HTTPAdditionalHeaders = ["Authorization": "Token token=\"\(self.token)\""]
+    let session = NSURLSession(configuration: config)
+    return session
+  }()
+
+  private lazy var deviceIdentifier: String? = {
+    #if os(iOS)
+      return UIDevice.currentDevice().identifierForVendor?.UUIDString
+    #elseif os(OSX)
+      let platformExpert: io_service_t
+      let service = "IOPlatformExpertDevice"
+      let key = kIOPlatformSerialNumberKey
+      let allocator = kCFAllocatorDefault
+      platformExpert = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching(service))
+      let serialNumberAsCFString = IORegistryEntryCreateCFProperty(platformExpert, key, allocator, 0)
+      IOObjectRelease(platformExpert)
+      return serialNumberAsCFString.takeUnretainedValue() as? String
+    #endif
+  }()
+
+  // MARK: - Public Methods
+
+  public init(token: String,
+    receiptURL: NSURL? = NSBundle.mainBundle().appStoreReceiptURL,
+    endpointURL: NSURL = NSURL(string: "https://keelhaul.io/api/v1/validate")!) {
+    self.token = token
+    self.receiptURL = receiptURL
+    self.endpointURL = endpointURL
   }
 
   public final func validateReceipt(completion: (Bool, Receipt?, NSError?) -> Void) {
     guard hasReceipt else {
-      let error = NSError(domain: "com.thoughtbot.keelhaul", code: KeelhaulError.MissingReceipt.rawValue, userInfo: nil)
-      completion(false, .None, error)
+      completion(false, .None, KeelhaulError.MissingReceipt.toNSError())
       return
     }
 
     guard let request = validationRequest else {
-      let error = NSError(domain: "com.thoughtbot.keelhaul", code: KeelhaulError.NoReceiptURL.rawValue, userInfo: nil)
-      completion(false, .None, error)
+      completion(false, .None, KeelhaulError.InvalidRequest.toNSError())
       return
     }
 
     session.dataTaskWithRequest(request) { data, response, error in
       guard let httpResponse = response as? NSHTTPURLResponse else {
-        let error = NSError(domain: "com.thoughtbot.keelhaul",
-          code: KeelhaulError.ResponseIsNotHTTP.rawValue,
-          userInfo: ["response": response ?? "Response is not HTTP."])
-        completion(false, .None, error)
+        completion(false, .None, KeelhaulError.ResponseIsNotHTTP.toNSError(response?.description))
         return
       }
 
-      let code = httpResponse.statusCode
-      if !(200..<300).contains(code) {
-        let error = NSError(domain: "com.thoughtbot.keelhaul",
-          code: KeelhaulError.FailureResponse.rawValue,
-          userInfo: ["response": httpResponse])
-        completion(false, .None, error)
+      if !(200..<300).contains(httpResponse.statusCode) {
+        completion(false, .None, KeelhaulError.FailureResponse.toNSError(httpResponse.description))
         return
       }
 

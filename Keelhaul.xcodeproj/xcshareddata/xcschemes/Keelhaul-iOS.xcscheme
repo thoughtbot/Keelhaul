@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00FEC09F1C19B1AA0098D0C4"
                BuildableName = "Keelhaul.framework"
-               BlueprintName = "Keelhaul"
+               BlueprintName = "Keelhaul-iOS"
                ReferencedContainer = "container:Keelhaul.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00FEC0A91C19B1AB0098D0C4"
-               BuildableName = "KeelhaulTests.xctest"
-               BlueprintName = "KeelhaulTests"
+               BuildableName = "KeelhaulTests-iOS.xctest"
+               BlueprintName = "KeelhaulTests-iOS"
                ReferencedContainer = "container:Keelhaul.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -45,7 +45,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00FEC09F1C19B1AA0098D0C4"
             BuildableName = "Keelhaul.framework"
-            BlueprintName = "Keelhaul"
+            BlueprintName = "Keelhaul-iOS"
             ReferencedContainer = "container:Keelhaul.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,7 +67,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00FEC09F1C19B1AA0098D0C4"
             BuildableName = "Keelhaul.framework"
-            BlueprintName = "Keelhaul"
+            BlueprintName = "Keelhaul-iOS"
             ReferencedContainer = "container:Keelhaul.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -85,7 +85,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00FEC09F1C19B1AA0098D0C4"
             BuildableName = "Keelhaul.framework"
-            BlueprintName = "Keelhaul"
+            BlueprintName = "Keelhaul-iOS"
             ReferencedContainer = "container:Keelhaul.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

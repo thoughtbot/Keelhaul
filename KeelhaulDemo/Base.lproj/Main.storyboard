@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -23,8 +24,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6O-YS-NBu">
-                                <rect key="frame" x="283" y="319" width="34" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6O-YS-NBu">
+                                <rect key="frame" x="283" y="318" width="34" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.87238216400000002" green="0.28002563489999999" blue="0.10574709879999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -36,6 +37,8 @@
                             <constraint firstItem="J6O-YS-NBu" firstAttribute="top" secondItem="NCd-yH-6jq" secondAttribute="bottom" constant="8" id="Oy9-bl-Fxk"/>
                             <constraint firstItem="NCd-yH-6jq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SXt-h3-3YJ"/>
                             <constraint firstItem="NCd-yH-6jq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ywa-6D-NwB"/>
+                            <constraint firstItem="J6O-YS-NBu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="fak-SL-ul0"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="J6O-YS-NBu" secondAttribute="trailing" constant="16" id="rLI-iV-CUb"/>
                         </constraints>
                     </view>
                     <connections>

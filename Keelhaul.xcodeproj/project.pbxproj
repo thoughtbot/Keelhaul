@@ -335,6 +335,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00BB02BA1C8F011900064575 /* Build configuration list for PBXNativeTarget "CommonCrypto-iOS" */;
 			buildPhases = (
+				00711A6D1C984EA600B73EE5 /* Update modulemap */,
 				00BB02B01C8F011900064575 /* Sources */,
 				00BB02B11C8F011900064575 /* Frameworks */,
 				00BB02B21C8F011900064575 /* Headers */,
@@ -353,6 +354,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00BB02D51C8F0AFD00064575 /* Build configuration list for PBXNativeTarget "CommonCrypto-OSX" */;
 			buildPhases = (
+				00711A6E1C984FB500B73EE5 /* Update modulemap */,
 				00BB02CB1C8F0AFD00064575 /* Sources */,
 				00BB02CC1C8F0AFD00064575 /* Frameworks */,
 				00BB02CD1C8F0AFD00064575 /* Headers */,
@@ -505,6 +507,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		00711A6D1C984EA600B73EE5 /* Update modulemap */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update modulemap";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sed -e 's@(SDKROOT)@'\"$SDKROOT\"'@' CommonCrypto/map.modulemap > CommonCrypto/$PLATFORM_NAME.modulemap\nsed -i.bak 's@'\"$SDK_VERSION\"'@@' CommonCrypto/$PLATFORM_NAME.modulemap";
+		};
+		00711A6E1C984FB500B73EE5 /* Update modulemap */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update modulemap";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sed -e 's@(SDKROOT)@'\"$SDKROOT\"'@' CommonCrypto/map.modulemap > CommonCrypto/$PLATFORM_NAME.modulemap";
+		};
 		00FEC0BA1C19B6320098D0C4 /* Set version number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

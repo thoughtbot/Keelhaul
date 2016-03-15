@@ -92,22 +92,27 @@ public final class Keelhaul {
         return
       }
 
-      if !(200..<300).contains(httpResponse.statusCode) {
-        completion(false, .None, KeelhaulError.FailureResponse.toNSError(httpResponse.description))
-        return
-      }
+      switch httpResponse.statusCode {
+      case 200..<300:
+        guard let data = data else {
+          return completion(false, .None, KeelhaulError.MissingReceiptData.toNSError(httpResponse.description))
+        }
 
-      guard let data = data else {
-        completion(true, .None, .None)
-        return
-      }
-
-      do {
-        let json = try NSJSONSerialization.JSONObjectWithData(data, options: [])
-        let (receipt, error) = Receipt.parse(json)
-        completion(true, receipt, error)
-      } catch let error as NSError {
-        completion(true, .None, error)
+        do {
+          let json = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+          let (receipt, error) = Receipt.parse(json)
+          return completion(true, receipt, error)
+        } catch let error as NSError {
+          return completion(true, .None, error)
+        }
+      case 400:
+        return completion(false, .None, KeelhaulError.MismatchingEnvironment.toNSError(httpResponse.description))
+      case 401:
+        return completion(false, .None, KeelhaulError.AuthenticationFailure.toNSError(httpResponse.description))
+      case 403:
+        return completion(false, .None, KeelhaulError.MismatchingDevice.toNSError(httpResponse.description))
+      default:
+        return completion(false, .None, KeelhaulError.FailureResponse.toNSError(httpResponse.description))
       }
     }.resume()
   }

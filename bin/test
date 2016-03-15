@@ -2,6 +2,8 @@
 
 set -o pipefail
 
+xcode-select -print-path
+
 portcheck=$(lsof -i \:1234)
 
 if [[ $? != 0 ]]; then

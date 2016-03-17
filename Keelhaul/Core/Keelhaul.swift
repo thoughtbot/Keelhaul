@@ -69,10 +69,10 @@ public final class Keelhaul {
 
   public init(token: String,
     receiptURL: NSURL? = NSBundle.mainBundle().appStoreReceiptURL,
-    endpointURL: NSURL = NSURL(string: "https://keelhaul.io/api/v1/validate")!) {
-    self.token = token
-    self.receiptURL = receiptURL
-    self.endpointURL = endpointURL
+    endpointURL: NSURL = NSURL(string: "https://keelhaul.thoughtbot.com/api/v1/validate")!) {
+      self.token = token
+      self.receiptURL = receiptURL
+      self.endpointURL = endpointURL
   }
 
   public final func validateReceipt(completion: (Bool, Receipt?, NSError?) -> Void) {
@@ -82,37 +82,40 @@ public final class Keelhaul {
     }
 
     guard let request = validationRequest else {
-      completion(false, .None, KeelhaulError.InvalidRequest.toNSError())
+      completion(false, .None, KeelhaulError.MissingDeviceHash.toNSError())
       return
     }
 
     session.dataTaskWithRequest(request) { data, response, error in
       guard let httpResponse = response as? NSHTTPURLResponse else {
-        completion(false, .None, KeelhaulError.ResponseIsNotHTTP.toNSError(response?.description))
-        return
+        return completion(false, .None, KeelhaulError.InvalidHTTPResponse.toNSError(response?.description))
+      }
+      
+      guard let data = data else {
+        return completion(false, .None, KeelhaulError.MissingResponseData.toNSError(httpResponse.description))
+      }
+
+      guard httpResponse.statusCode != 401 else {
+        return completion(false, .None, KeelhaulError.InvalidDeveloperAPIKey.toNSError(httpResponse.description))
+      }
+
+      guard [200, 400].contains(httpResponse.statusCode) else {
+        return completion(false, .None, KeelhaulError.InvalidResponse.toNSError(httpResponse.description))
+      }
+
+      guard let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) else {
+        return completion(false, .None, KeelhaulError.MalformedResponseJSON.toNSError(httpResponse.description))
       }
 
       switch httpResponse.statusCode {
-      case 200..<300:
-        guard let data = data else {
-          return completion(false, .None, KeelhaulError.MissingReceiptData.toNSError(httpResponse.description))
-        }
-
-        do {
-          let json = try NSJSONSerialization.JSONObjectWithData(data, options: [])
-          let (receipt, error) = Receipt.parse(json)
-          return completion(true, receipt, error)
-        } catch let error as NSError {
-          return completion(true, .None, error)
-        }
+      case 200:
+        let (receipt, error) = Receipt.parse(json)
+        return completion(receipt != nil, receipt, error)
       case 400:
-        return completion(false, .None, KeelhaulError.MismatchingEnvironment.toNSError(httpResponse.description))
-      case 401:
-        return completion(false, .None, KeelhaulError.AuthenticationFailure.toNSError(httpResponse.description))
-      case 403:
-        return completion(false, .None, KeelhaulError.MismatchingDevice.toNSError(httpResponse.description))
+        let error = KeelhaulError.parse(json)
+        return completion(false, .None, error.toNSError(httpResponse.description))
       default:
-        return completion(false, .None, KeelhaulError.FailureResponse.toNSError(httpResponse.description))
+        return completion(false, .None, KeelhaulError.InvalidResponse.toNSError(httpResponse.description))
       }
     }.resume()
   }

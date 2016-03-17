@@ -10,7 +10,7 @@ public struct Receipt {
 
   static func parse(json: AnyObject) -> (Receipt?, NSError?) {
     guard let json = json as? [String: AnyObject] else {
-      return (.None, KeelhaulError.BadJSON.toNSError())
+      return (.None, KeelhaulError.MalformedResponseJSON.toNSError())
     }
 
     guard let id = json["download_id"] as? Int,
@@ -20,10 +20,7 @@ public struct Receipt {
       let requestDateString = json["request_date_ms"] as? String,
       let purchaseDateString = json["original_purchase_date_ms"] as? String
     else {
-      let error = NSError(domain: "com.thoughtbot.keelhaul",
-        code: KeelhaulError.InsufficientJSON.rawValue,
-        userInfo: .None)
-      return (.None, error)
+      return (.None, KeelhaulError.InsufficientResponseJSON.toNSError())
     }
 
     let creationDate = dateFromTimeIntervalString(creationDateString)

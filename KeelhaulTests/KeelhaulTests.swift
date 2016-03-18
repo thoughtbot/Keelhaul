@@ -11,8 +11,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/success")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertTrue(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNotNil(receipt)
       XCTAssertNil(error)
 
@@ -36,8 +35,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/error/21007")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 21007)
@@ -54,8 +52,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/unauthorized")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 20007)
@@ -72,8 +69,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/error/21000")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 21000)
@@ -90,8 +86,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/error/21002")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 21002)
@@ -108,8 +103,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/error/21003")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 21003)
@@ -126,8 +120,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/error/21005")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 21005)
@@ -144,8 +137,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/malformed-json")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 20000)
@@ -162,8 +154,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/insufficient-json")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 20001)
@@ -180,8 +171,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: invalidReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 20002)
@@ -198,8 +188,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1254/invalid-http-response")!)
 
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 20004)
@@ -216,8 +205,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/error/20009")!)
     
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 20009)
@@ -234,8 +222,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/unknown-error")!)
     
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 20020)
@@ -252,8 +239,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/404")!)
     
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 20006)
@@ -270,8 +256,7 @@ class KeelhaulTests: XCTestCase {
       receiptURL: validReceiptURL,
       endpointURL: NSURL(string: "http://localhost:1234/500")!)
     
-    keelhaul.validateReceipt { success, receipt, error in
-      XCTAssertFalse(success)
+    keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
       XCTAssertEqual(error!.code, 20006)
@@ -281,5 +266,4 @@ class KeelhaulTests: XCTestCase {
     
     waitForExpectationsWithTimeout(0.1, handler: nil)
   }
-
 }

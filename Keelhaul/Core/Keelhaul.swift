@@ -75,47 +75,47 @@ public final class Keelhaul {
       self.endpointURL = endpointURL
   }
 
-  public final func validateReceipt(completion: (Bool, Receipt?, NSError?) -> Void) {
+  public final func validateReceipt(completion: (Receipt?, NSError?) -> Void) {
     guard hasReceipt else {
-      completion(false, .None, KeelhaulError.MissingReceipt.toNSError())
+      completion(.None, KeelhaulError.MissingReceipt.toNSError())
       return
     }
 
     guard let request = validationRequest else {
-      completion(false, .None, KeelhaulError.MissingDeviceHash.toNSError())
+      completion(.None, KeelhaulError.MissingDeviceHash.toNSError())
       return
     }
 
     session.dataTaskWithRequest(request) { data, response, error in
       guard let httpResponse = response as? NSHTTPURLResponse else {
-        return completion(false, .None, KeelhaulError.InvalidHTTPResponse.toNSError(response?.description))
+        return completion(.None, KeelhaulError.InvalidHTTPResponse.toNSError(response?.description))
       }
       
       guard let data = data else {
-        return completion(false, .None, KeelhaulError.MissingResponseData.toNSError(httpResponse.description))
+        return completion(.None, KeelhaulError.MissingResponseData.toNSError(httpResponse.description))
       }
 
       guard httpResponse.statusCode != 401 else {
-        return completion(false, .None, KeelhaulError.InvalidDeveloperAPIKey.toNSError(httpResponse.description))
+        return completion(.None, KeelhaulError.InvalidDeveloperAPIKey.toNSError(httpResponse.description))
       }
 
       guard [200, 400].contains(httpResponse.statusCode) else {
-        return completion(false, .None, KeelhaulError.InvalidResponse.toNSError(httpResponse.description))
+        return completion(.None, KeelhaulError.InvalidResponse.toNSError(httpResponse.description))
       }
 
       guard let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) else {
-        return completion(false, .None, KeelhaulError.MalformedResponseJSON.toNSError(httpResponse.description))
+        return completion(.None, KeelhaulError.MalformedResponseJSON.toNSError(httpResponse.description))
       }
 
       switch httpResponse.statusCode {
       case 200:
         let (receipt, error) = Receipt.parse(json)
-        return completion(receipt != nil, receipt, error)
+        return completion(receipt, error)
       case 400:
         let error = KeelhaulError.parse(json)
-        return completion(false, .None, error.toNSError(httpResponse.description))
+        return completion(.None, error.toNSError(httpResponse.description))
       default:
-        return completion(false, .None, KeelhaulError.InvalidResponse.toNSError(httpResponse.description))
+        return completion(.None, KeelhaulError.InvalidResponse.toNSError(httpResponse.description))
       }
     }.resume()
   }

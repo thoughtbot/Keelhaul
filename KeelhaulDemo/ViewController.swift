@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     let endpointURL = NSURL(string: "http://<#Server Root URL#>/api/v1/verifications?sandbox=1")!
     let keelhaul = Keelhaul.init(token: token, receiptURL: receiptURL, endpointURL: endpointURL)
 
-    keelhaul.validateReceipt { isValid, receipt, error in
+    keelhaul.validateReceipt { receipt, error in
       onMain {
-        self.receiptLabel.text = (isValid ? "\u{2705} Valid" : "\u{26D4} Invalid") + " Receipt"
+        self.receiptLabel.text = (receipt != nil ? "\u{2705} Valid" : "\u{26D4} Invalid") + " Receipt"
 
         if let error = error {
           self.errorLabel.text = "Error \(error.code): \(error.userInfo[NSLocalizedDescriptionKey]!)"

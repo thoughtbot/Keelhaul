@@ -82,8 +82,9 @@ redistributed under the terms specified in the [LICENSE] file.
 
 ![thoughtbot](https://thoughtbot.com/logo.png)
 
-Keelhaul is maintained and funded by thoughtbot, inc. The names and logos for
-thoughtbot are trademarks of thoughtbot, inc.
+Keelhaul is maintained and funded by thoughtbot, inc.
+
+The names and logos for thoughtbot are trademarks of thoughtbot, inc.
 
 We love open source software! See [our other projects][community] or look at
 our product [case studies] and [hire us][hire] to help build your iOS app.

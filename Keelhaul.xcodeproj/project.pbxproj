@@ -302,6 +302,7 @@
 				00BB02921C8EE33400064575 /* Frameworks */,
 				00BB02931C8EE33400064575 /* Headers */,
 				00BB02941C8EE33400064575 /* Resources */,
+				007EC5961C9FFC250041CA8F /* Set Version Number */,
 			);
 			buildRules = (
 			);
@@ -377,7 +378,7 @@
 				00FEC09C1C19B1AA0098D0C4 /* Frameworks */,
 				00FEC09D1C19B1AA0098D0C4 /* Headers */,
 				00FEC09E1C19B1AA0098D0C4 /* Resources */,
-				00FEC0BA1C19B6320098D0C4 /* Set version number */,
+				00FEC0BA1C19B6320098D0C4 /* Set Version Number */,
 			);
 			buildRules = (
 			);
@@ -535,14 +536,28 @@
 			shellPath = /bin/sh;
 			shellScript = "sed -e 's@(SDKROOT)@'\"$SDKROOT\"'@' CommonCrypto/map.modulemap > CommonCrypto/$PLATFORM_NAME.modulemap";
 		};
-		00FEC0BA1C19B6320098D0C4 /* Set version number */ = {
+		007EC5961C9FFC250041CA8F /* Set Version Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Set version number";
+			name = "Set Version Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GIT_RELEASE_VERSION=$(git describe --tags --always --abbrev=0)\nCOMMITS=$(git rev-list HEAD | wc -l)\nCOMMITS=$(($COMMITS))\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${COMMITS}\" \"${INFOPLIST_FILE}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${GIT_RELEASE_VERSION#*v}\" \"${INFOPLIST_FILE}\"";
+		};
+		00FEC0BA1C19B6320098D0C4 /* Set Version Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Version Number";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

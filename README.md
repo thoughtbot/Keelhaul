@@ -13,7 +13,7 @@ An iOS/OSX SDK to communicate with Keelhaul—server-side App Store receipt vali
 Add the following to your Cartfile:
 
 ~~~
-github "thoughtbot/keelhaul-sdk"
+github "thoughtbot/Keelhaul"
 ~~~
 
 Then run `carthage update`.

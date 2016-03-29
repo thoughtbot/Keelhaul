@@ -10,8 +10,8 @@ elif [[ $portcheck ]]; then
   echo "Server is already running..."
 fi
 
-xcodebuild -project Keelhaul.xcodeproj -scheme CommonCrypto-iOS -destination 'platform=iOS Simulator,name=iPhone 6'
-xcodebuild -project Keelhaul.xcodeproj -scheme CommonCrypto-OSX -sdk macosx
+xcodebuild -project Keelhaul.xcodeproj -scheme CommonCrypto-iOS -destination 'platform=iOS Simulator,name=iPhone 6' >/dev/null
+xcodebuild -project Keelhaul.xcodeproj -scheme CommonCrypto-OSX -sdk macosx >/dev/null
 
 xcodebuild test -project Keelhaul.xcodeproj -scheme Keelhaul-iOS -destination 'platform=iOS Simulator,name=iPhone 6' | xcpretty -t -c
 xcodebuild test -project Keelhaul.xcodeproj -scheme Keelhaul-OSX -sdk macosx BUILD_ACTIVE_ARCH=NO | xcpretty -t -c

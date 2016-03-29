@@ -69,10 +69,13 @@ public final class Keelhaul {
 
   public init(token: String,
     receiptURL: NSURL? = NSBundle.mainBundle().appStoreReceiptURL,
-    endpointURL: NSURL = NSURL(string: "https://keelhaul.thoughtbot.com/api/v1/validate")!) {
+    endpointURL: NSURL = NSURL(string: "https://keelhaul.thoughtbot.com/api/v1/validate")!,
+    useSandbox: Bool = false) {
+      let components = NSURLComponents(URL: endpointURL, resolvingAgainstBaseURL: false)
+      components!.queryItems = [NSURLQueryItem(name: "sandbox", value: useSandbox ? "1" : "0")]
       self.token = token
       self.receiptURL = receiptURL
-      self.endpointURL = endpointURL
+      self.endpointURL = components!.URL!
   }
 
   public final func validateReceipt(completion: (Receipt?, NSError?) -> Void) {

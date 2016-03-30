@@ -9,7 +9,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     let token = "AlV4w1FqkAORqPDaS5OUbg"
     let receiptURL = NSBundle.mainBundle().URLForResource("receipt", withExtension: nil)!
-    let endpointURL = NSURL(string: "http://localhost:3000/api/v1/verifications")!
+    let endpointURL = NSURL(string: "http://localhost:3000/api/v1/validate")!
     let config = KeelhaulConfiguration(receiptURL: receiptURL, endpointURL: endpointURL, sandbox: true)
     let keelhaul = Keelhaul.init(token: token, configuration: config)
 

@@ -14,6 +14,8 @@
 		00651A511C907C1B00FF6C7E /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005CB5901C24583E0017552B /* DateHelpers.swift */; };
 		00651A521C907C2500FF6C7E /* validReceipt.txt in Resources */ = {isa = PBXBuildFile; fileRef = 005CB58E1C244DA40017552B /* validReceipt.txt */; };
 		00651A531C907D0900FF6C7E /* KeelhaulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0AF1C19B1AB0098D0C4 /* KeelhaulTests.swift */; };
+		0091507C1CABC61800F3FB4F /* KeelhaulConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091507B1CABC61800F3FB4F /* KeelhaulConfiguration.swift */; };
+		0091507D1CABD5AC00F3FB4F /* KeelhaulConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091507B1CABC61800F3FB4F /* KeelhaulConfiguration.swift */; };
 		00BB02991C8EE33400064575 /* Keelhaul-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 00BB02981C8EE33400064575 /* Keelhaul-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00BB02A01C8EE33400064575 /* Keelhaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BB02961C8EE33400064575 /* Keelhaul.framework */; };
 		00BB02AD1C8EE46A00064575 /* Keelhaul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */; };
@@ -68,6 +70,7 @@
 		005CB58E1C244DA40017552B /* validReceipt.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = validReceipt.txt; sourceTree = "<group>"; };
 		005CB5901C24583E0017552B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		006451DA1C92C9B200D41C7B /* NSDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExtension.swift; sourceTree = "<group>"; };
+		0091507B1CABC61800F3FB4F /* KeelhaulConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeelhaulConfiguration.swift; sourceTree = "<group>"; };
 		00BB02961C8EE33400064575 /* Keelhaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Keelhaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		00BB02981C8EE33400064575 /* Keelhaul-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keelhaul-OSX.h"; sourceTree = "<group>"; };
 		00BB029A1C8EE33400064575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -249,10 +252,11 @@
 			isa = PBXGroup;
 			children = (
 				00FEC0BC1C19B9170098D0C4 /* Keelhaul.swift */,
+				0091507B1CABC61800F3FB4F /* KeelhaulConfiguration.swift */,
 				00FEC0CD1C1AFEE30098D0C4 /* KeelhaulError.swift */,
+				006451DA1C92C9B200D41C7B /* NSDataExtension.swift */,
 				00FEC0BE1C19CD130098D0C4 /* Receipt.swift */,
 				00BB02E21C8F0DD700064575 /* StringHashExtension.swift */,
-				006451DA1C92C9B200D41C7B /* NSDataExtension.swift */,
 			);
 			name = Core;
 			path = Keelhaul/Core;
@@ -576,6 +580,7 @@
 				00BB02AE1C8EE46A00064575 /* Receipt.swift in Sources */,
 				00BB02AD1C8EE46A00064575 /* Keelhaul.swift in Sources */,
 				00BB02AF1C8EE46A00064575 /* KeelhaulError.swift in Sources */,
+				0091507D1CABD5AC00F3FB4F /* KeelhaulConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +616,7 @@
 				00FEC0BF1C19CD130098D0C4 /* Receipt.swift in Sources */,
 				00FEC0BD1C19B9170098D0C4 /* Keelhaul.swift in Sources */,
 				00FEC0CE1C1AFEE30098D0C4 /* KeelhaulError.swift in Sources */,
+				0091507C1CABC61800F3FB4F /* KeelhaulConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

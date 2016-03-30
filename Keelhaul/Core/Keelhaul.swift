@@ -67,15 +67,10 @@ public final class Keelhaul {
 
   // MARK: - Public Methods
 
-  public init(token: String,
-    receiptURL: NSURL? = NSBundle.mainBundle().appStoreReceiptURL,
-    endpointURL: NSURL = NSURL(string: "https://keelhaul.thoughtbot.com/api/v1/validate")!,
-    useSandbox: Bool = false) {
-      let components = NSURLComponents(URL: endpointURL, resolvingAgainstBaseURL: false)
-      components!.queryItems = [NSURLQueryItem(name: "sandbox", value: useSandbox ? "1" : "0")]
+  public init(token: String, configuration: KeelhaulConfiguration = KeelhaulConfiguration()) {
       self.token = token
-      self.receiptURL = receiptURL
-      self.endpointURL = components!.URL!
+      self.receiptURL = configuration.receiptURL
+      self.endpointURL = configuration.fullEndpointURL
   }
 
   public final func validateReceipt(completion: (Receipt?, NSError?) -> Void) {

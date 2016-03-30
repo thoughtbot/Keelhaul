@@ -7,10 +7,11 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    let token = "<#API Key#>"
+    let token = "AlV4w1FqkAORqPDaS5OUbg"
     let receiptURL = NSBundle.mainBundle().URLForResource("receipt", withExtension: nil)!
-    let endpointURL = NSURL(string: "http://<#Server Root URL#>/api/v1/verifications?sandbox=1")!
-    let keelhaul = Keelhaul.init(token: token, receiptURL: receiptURL, endpointURL: endpointURL)
+    let endpointURL = NSURL(string: "http://localhost:3000/api/v1/verifications")!
+    let config = KeelhaulConfiguration(receiptURL: receiptURL, endpointURL: endpointURL, sandbox: true)
+    let keelhaul = Keelhaul.init(token: token, configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       onMain {

@@ -4,12 +4,12 @@ import XCTest
 class KeelhaulTests: XCTestCase {
   let validReceiptURL = NSBundle(forClass: KeelhaulTests.self).URLForResource("validReceipt", withExtension: "txt")!
   let invalidReceiptURL = NSURL(string: "InvalidReceipt")!
+  let timeoutDuration = 0.5
 
   func testValidReceipt() {
     let expectation = expectationWithDescription("ValidateReceiptTest")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/success")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/success")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNotNil(receipt)
@@ -26,14 +26,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testSandboxReceiptEnvMismatch() {
     let expectation = expectationWithDescription("testSandboxReceiptEnvMismatch")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/error/21007")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/error/21007")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -43,14 +42,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testInvalidDeveloperAPIKey() {
     let expectation = expectationWithDescription("testInvalidDeveloperAPIKey")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/unauthorized")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/unauthorized")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -60,14 +58,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testMalformedRequestJSON() {
     let expectation = expectationWithDescription("testMalformedRequestJSON")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/error/21000")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/error/21000")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -77,14 +74,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testMalformedReceiptData() {
     let expectation = expectationWithDescription("testMalformedReceiptData")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/error/21002")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/error/21002")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -94,14 +90,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testUnauthenticSignature() {
     let expectation = expectationWithDescription("testUnauthenticSignature")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/error/21003")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/error/21003")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -111,14 +106,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testAppleServerUnavailable() {
     let expectation = expectationWithDescription("testAppleServerUnavailable")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/error/21005")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/error/21005")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -128,14 +122,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testMalformedResponseJSON() {
     let expectation = expectationWithDescription("testMalformedResponseJSON")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/malformed-json")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/malformed-json")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -145,14 +138,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testInsufficientResponseJSON() {
     let expectation = expectationWithDescription("testInsufficientResponseJSON")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/insufficient-json")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/insufficient-json")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -162,14 +154,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testMissingReceipt() {
     let expectation = expectationWithDescription("testMissingReceipt")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: invalidReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/")!)
+    let config = KeelhaulConfiguration(receiptURL: invalidReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -179,14 +170,13 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testInvalidHTTPResponse() {
     let expectation = expectationWithDescription("testInvalidHTTPResponse")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1254/invalid-http-response")!)
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1254/invalid-http-response")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
 
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
@@ -196,15 +186,14 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testDeviceMismatch() {
     let expectation = expectationWithDescription("testDeviceMismatch")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/error/20009")!)
-    
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/error/20009")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
+
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
@@ -213,15 +202,14 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
     
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func testUnknownSDKError() {
     let expectation = expectationWithDescription("testUnknownSDKError")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/unknown-error")!)
-    
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/unknown-error")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
+
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
@@ -230,15 +218,14 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
     
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func test404() {
     let expectation = expectationWithDescription("test404")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/404")!)
-    
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/404")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
+
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
@@ -247,15 +234,14 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
     
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 
   func test500() {
     let expectation = expectationWithDescription("test500")
-    let keelhaul = Keelhaul(token: "secret",
-      receiptURL: validReceiptURL,
-      endpointURL: NSURL(string: "http://localhost:1234/500")!)
-    
+    let config = KeelhaulConfiguration(receiptURL: validReceiptURL, endpointURL: NSURL(string: "http://localhost:1234/500")!)
+    let keelhaul = Keelhaul(token: "secret", configuration: config)
+
     keelhaul.validateReceipt { receipt, error in
       XCTAssertNil(receipt)
       XCTAssertNotNil(error)
@@ -264,6 +250,6 @@ class KeelhaulTests: XCTestCase {
       expectation.fulfill()
     }
     
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectationsWithTimeout(timeoutDuration, handler: nil)
   }
 }

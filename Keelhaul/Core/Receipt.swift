@@ -1,12 +1,12 @@
 import Foundation
 
 public struct Receipt {
-  let ID: Int
-  let bundleID: String
-  let appVersion: String
-  let creationDate: NSDate
-  let requestDate: NSDate
-  let purchaseDate: NSDate
+  public let ID: Int
+  public let bundleID: String
+  public let appVersion: String
+  public let creationDate: NSDate
+  public let requestDate: NSDate
+  public let purchaseDate: NSDate
 
   static func parse(json: AnyObject) -> (Receipt?, NSError?) {
     guard let json = json as? [String: AnyObject] else {

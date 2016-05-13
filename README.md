@@ -25,7 +25,7 @@ for up to date installation instructions.
 
 ## How It Works
 
-The Keelhaul SDK communicates via HTTPS with the server, which in turn sends receipt validation requests to Apple and caches the response for future SDK requests. It also keeps track of which device was used to validate the receipt and makes sure that any receipt is used on exactly one device– a feature that Apple's validation erver does not provide.
+The Keelhaul SDK communicates via HTTPS with the server, which in turn sends receipt validation requests to Apple and caches the response for future SDK requests. It also keeps track of which device was used to validate the receipt and makes sure that any receipt is used on exactly one device– a feature that Apple's validation server does not provide.
 
 ## Quick Start
 
